@@ -1,1 +1,0 @@
-export const TEST_RDX = 'test_redux'

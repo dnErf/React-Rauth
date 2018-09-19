@@ -1,8 +1,3 @@
-
-export function testStateToProps (state) {
-  return { message : state }
-}
-
 export function authStateToProps (state) {
   return { 
     auth : state.auth ,
@@ -12,7 +7,6 @@ export function authStateToProps (state) {
 
 export function contentStateToProps (state) {
   return {
-    // auth : state.auth ,
     content : state.content ,
   }
 }
