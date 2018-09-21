@@ -2,7 +2,7 @@ const
   express = require('express')
   bodyParser = require('body-parser')
   mongoose = require('mongoose')
-  mongoURL = require('./config').db
+  mongoURL = require('./config.js').db
   passport = require('passport')
   path = require('path')
   routes = require('./api/routes')
