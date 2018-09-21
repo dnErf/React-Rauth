@@ -1,4 +1,4 @@
 # Rauth
-React Redux Authentication Examples
+Node JS Express Server Access Authentication Examples
 - MongoDB , Mongoose , JWT and Passport
-- Firebase Auth
+- Firebase Auth (not yet in the bundle)

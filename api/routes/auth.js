@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const secretKey = require('../../config.js').secrets
 const userAuth = require('../model').Auth
 const validateInput = require('../validation')
 
@@ -27,7 +28,7 @@ exports.signIn = async function(req,res,next) {
               const payload = { id : user.id }
               jwt.sign(
                 payload,
-                's3crEt',
+                secretKey,
                 {expiresIn:3600} ,
                 (err,token)=>{res.json({success:true,token:'Bearer '+token})}
               )

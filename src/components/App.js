@@ -25,7 +25,6 @@ class App extends Component {
     }
     if (!this.state.register) {
       this.props.signIn(authData,()=>{
-        console.log('success')
         this.props.history.push('/content')
       })
     }
@@ -46,17 +45,27 @@ class App extends Component {
     const { error , signIn } = this.props
     return (
       <div className="c">
+        <h3 className="">Node JS Access Authentication with ReactJS</h3>
         <div className="flex content-between">
-          <div className="w-50 c">
+          <div className="c w-50">
             <span className="f4 u">Authentication</span> is for identifying and giving different access rights and content to the users depending on their assigned role.
             <br />
             <br />
-            <p><a onClick={this.handleSignUp}>
+            <p>
+            <a onClick={this.handleSignUp}>
               {register ? 
                 'Log me in ...' :
-                'I want to Sign Up'
+                'I want to try and Sign Up'
               }
-            </a></p>
+            </a>
+            <div className="f6 i">You'll see cheats when you sign in.</div>
+            </p>
+            <br />
+            <p>Libraries initially used : 
+            {' '}<a href="https://github.com/kelektiv/node.bcrypt.js" target="blank">Bcrypt</a>, 
+            {' '}<a href="https://jwt.io/" target="blank">JSON Web Token</a>,
+            {' '}<a href="http://www.passportjs.org/" target="blank">Passport</a>
+            </p>
           </div>
           <div className="w-50">
             <SignIn
@@ -76,7 +85,7 @@ class App extends Component {
           {error.password ? <span className="bg-error ma1 ph3 pv1 rounded font--light">{error.password}</span>:''}
           { registerSuccess && <span className="bg-error ma1 ph3 pv1 rounded font--light">Regitered Successfully...</span> }
         </div>
-      </div>
+    </div>      
     )
   }
 }

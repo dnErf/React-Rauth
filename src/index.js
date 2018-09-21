@@ -27,3 +27,8 @@ ReactDOM.render(
   </Redux>
   , document.getElementById('root')
 )
+
+// <Route exact path="/" component={composedApp} />
+// <Switch>
+// <PrivateRoute exact path="/content" component={composedContent} />
+// </Switch>
