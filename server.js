@@ -22,13 +22,6 @@ app
   .use(bodyParser.json())
   .use(require('cors')())
   .use('/api', routes)
-
-if (process.env.NODE_ENV === 'production') {
-  app
-    .use(express.static('/build'))
-    .get('*', res => {
-      res.sendFile(path.resolve(__dirname,'build','index.html'))
-    })
-}
+  .use(express.static('build'))
 
 app.listen(PORT,() => console.log(`server running on port ${PORT}`))
