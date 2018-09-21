@@ -7,9 +7,10 @@ import {
 
 const authActions = {
   signIn : (formData,callback) => async dispatch => {
+    // 'http://localhost:5000/api/signin'
     try {
       await axios
-        .post('http://localhost:5000/api/signin',formData)
+        .post('/api/signin',formData)
         .then(response => {
           dispatch({ type : AUTH_USER , payload : response.data.token })
           callback()
@@ -21,9 +22,10 @@ const authActions = {
     }
   } ,
   signUp : (formData,callback) => async dispatch => {
+    // http://localhost:5000/api/signup
     try {
       await axios
-        .post('http://localhost:5000/api/signup',formData)
+        .post('/api/signup',formData)
         .then(response => {
           dispatch({ type : AUTH_USER , payload : response.data.token })
           callback()
@@ -42,18 +44,3 @@ const authActions = {
 }
 
 export default authActions
-
-// export const signIn = (formData,callback) => async dispatch => {
-//   try {
-//     await axios
-//       .post('http://localhost:5000/signin',formData)
-//       .then(response => {
-//         dispatch({ type : AUTH_USER , payload : response.data.token })
-//         callback()
-//       })
-//       .catch(err => dispatch({ type : SET_ERROR , payload : err.response.data })) 
-//   }
-//   catch (err) {
-//     dispatch({ type : SET_ERROR , payload : err})
-//   }
-// }

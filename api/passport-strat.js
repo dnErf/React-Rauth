@@ -1,12 +1,12 @@
-// TODO move secret to ENV
 
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
+const secretKey = require('../config').secrets
 const userAuth = require('./model').Auth
 
 const opts = {
   jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken() ,
-  secretOrKey : 's3crEt'
+  secretOrKey : secretKey
 }
 
 passport.use (

@@ -16,7 +16,6 @@ exports.signIn = async function(req,res,next) {
         return res.status(404).json(errors)
       }
       else {
-        // res.json({msg:user.testInput(password)})
         user
           .matchPassword(password)
           .then(isMatch=>{
@@ -55,7 +54,6 @@ exports.signUp = async function(req,res,next) {
         return res.status(400).json({ errors })
       }
       else {
-        // return res.json({ message : 'success'})
         newUserAuth
           .save()
           .then(user => res.json(user))

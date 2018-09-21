@@ -10,11 +10,10 @@ const
 const
   app = express()
   PORT = process.env.PORT || 5000
-  db = mongoURL
 
 mongoose
   .set('useCreateIndex',true)
-  .connect(db,{ useNewUrlParser : true })
+  .connect(mongoURL,{ useNewUrlParser : true })
   .then(() => console.log('mongodb connected'))
   .catch(err => console.log(err))
 
@@ -25,10 +24,11 @@ app
   .use('/api', routes)
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
-  app.get('*', res => {
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-  })
+  app
+    .use(express.static('/build'))
+    .get('*', res => {
+      res.sendFile(path.resolve(__dirname,'build','index.html'))
+    })
 }
 
 app.listen(PORT,() => console.log(`server running on port ${PORT}`))
