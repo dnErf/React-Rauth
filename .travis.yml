@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 10.8.0
+cache:
+  directories:
+  - node_modules
+script:
+  - "yarn build"
+deploy:
+  provider: heroku
+  api_key:
+    secure: eacb9246-88e1-4c21-b18c-d41f8ad3e091
+  app: vdbx-react-rauth
+  on:
+    repo: dnErf/React-Rauth
