@@ -58,8 +58,8 @@ class App extends Component {
                 'I want to try and Sign Up'
               }
             </a>
-            <div className="f6 i">You'll see cheats when you sign in.</div>
             </p>
+            <div className="f6 i">You'll see cheats when you sign in.</div>
             <br />
             <p>Libraries initially used : 
             {' '}<a href="https://github.com/kelektiv/node.bcrypt.js" target="blank">Bcrypt</a>, 
