@@ -10,6 +10,7 @@ const authActions = {
     // 'http://localhost:5000/api/signin'
     try {
       await axios
+        // .post('http://localhost:5000/api/signin',formData)
         .post('/api/signin',formData)
         .then(response => {
           dispatch({ type : AUTH_USER , payload : response.data.token })
@@ -25,6 +26,7 @@ const authActions = {
     // http://localhost:5000/api/signup
     try {
       await axios
+        // .post('http://localhost:5000/api/signup',formData)
         .post('/api/signup',formData)
         .then(response => {
           dispatch({ type : AUTH_USER , payload : response.data.token })

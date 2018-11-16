@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {authConnect} from './redux'
 import SignIn from './auth/SignIn'
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
     const { error , signIn } = this.props
     return (
       <div className="c">
-        <h3 className="">Node JS Access Authentication with ReactJS</h3>
+        <h3 className="">Node JS Access Authentication with React JS</h3>
         <div className="flex content-between">
           <div className="c w-50">
             <span className="f4 u">Authentication</span> is for identifying and giving different access rights and content to the users depending on their assigned role.
@@ -83,11 +83,16 @@ class App extends Component {
         <div className="">
           {error.email ? <span className="bg-error ma1 ph3 pv1 rounded font--light">{error.email}</span>:''}
           {error.password ? <span className="bg-error ma1 ph3 pv1 rounded font--light">{error.password}</span>:''}
-          { registerSuccess && <span className="bg-error ma1 ph3 pv1 rounded font--light">Regitered Successfully...</span> }
+          {registerSuccess && <span className="bg-error ma1 ph3 pv1 rounded font--light">Registered Successfully...</span>}
         </div>
     </div>      
     )
   }
 }
 
-export default App
+const mapStateToProps = state => ({
+  auth : state.auth ,
+  error : state.error
+});
+
+export default authConnect(mapStateToProps)(App)

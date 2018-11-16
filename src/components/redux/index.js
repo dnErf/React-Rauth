@@ -5,7 +5,6 @@ import reduxPromise from 'redux-promise'
 import thunk from 'redux-thunk'
 
 import reducers from './reducers'
-import { authStateToProps , contentStateToProps } from './mapStateToProps'
 import authActions from './actions/auth'
 
 const initialState = {}
@@ -19,8 +18,8 @@ const store = createStore (
   ) 
 );
 
-export const authConnect = connect(authStateToProps,authActions)
-export const contentConnect = connect(contentStateToProps,{})
+export const authConnect = mapStateToProps => connect(mapStateToProps,authActions)
+export const contentConnect = mapStateToProps => connect(mapStateToProps,{})
 
 export default ({ children , state={} }) => {
   return (

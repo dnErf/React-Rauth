@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {contentConnect} from './redux'
 
 class Content extends Component {
   render () {
@@ -63,4 +64,8 @@ passport.use (
   }
 }
 
-export default Content
+const mapStateToProps = state => ({
+  content : state.content ,
+});
+
+export default contentConnect(mapStateToProps)(Content)

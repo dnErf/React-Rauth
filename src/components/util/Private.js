@@ -2,6 +2,8 @@ import React from 'react';
 import { Route , Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { authConnect } from '../redux'
+
 const Private = ({component : Component , auth , ...rest}) => (
   <Route 
     {...rest}
@@ -17,4 +19,9 @@ Private.propTypes = {
   auth : PropTypes.object.isRequired
 }
 
-export default Private
+const mapStateToProps = state => ({
+  auth : state.auth ,
+  error : state.error
+});
+
+export default authConnect(mapStateToProps)(Private)

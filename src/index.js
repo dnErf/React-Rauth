@@ -4,23 +4,19 @@ import './styles/style.js'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router , Route , Switch } from 'react-router-dom'
-import Redux , { authConnect , contentConnect } from './redux'
 
 import App from './components/App'
 import Content from './components/Content'
-import Private from './util/Private'
-
-const PrivateRoute = authConnect(Private)
-const composedApp = authConnect(App)
-const composedContent = contentConnect(Content)
+import Redux from './components/redux'
+import Private from './components/util/Private'
 
 ReactDOM.render(
   <Redux>
     <Router>
       <div className="app">
-        <Route exact path="/" component={composedApp} />
+        <Route exact path="/" component={App} />
         <Switch>
-          <PrivateRoute exact path="/content" component={composedContent} />
+          <Private exact path="/content" component={Content} />
         </Switch>
       </div>
     </Router>
