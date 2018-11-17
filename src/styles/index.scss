@@ -1,0 +1,49 @@
+@import './variables';
+@import './lit';
+@import './tachyons';
+
+.c {
+  max-width: 60rem;
+  padding: 1rem;
+  margin: auto;
+  // font: 1rem/1.6 $font;
+  // font: 1rem $font;
+}
+
+.card {
+  padding: 1rem;
+  border: solid $clr-light;
+  &:focus {
+    outline: 0;
+    border: solid $clr-primary;
+  }
+}
+
+.btn {
+  &
+  , &:link
+  , &:visited {
+    background: white;
+    border: .07rem solid $clr-gray;
+    border-radius: .2rem;
+    cursor: pointer;
+    padding: .5rem;
+    transition: all .1s ease;
+  }
+  &:active { transform: translateY(.6px); }
+  &:focus { outline: none; }
+  &:hover { opacity: .6; }
+  &.clr {
+    border: 0;
+    color: $clr-primary;
+  }
+  &.primary {
+    color: white;
+    background: $clr-primary;
+    border: solid $clr-primary;
+  }
+}
+
+.pre-wrap { white-space : pre-wrap; }
+
+//

@@ -1,5 +1,4 @@
-import './styles/style.css'
-import './styles/style.js'
+import './styles/index.scss'
 
 import React from 'react'
 import ReactDOM from 'react-dom'

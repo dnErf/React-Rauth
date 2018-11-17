@@ -4,36 +4,41 @@ import classNames from 'classnames'
 
 class SignIn extends Component {
   render() {
+    let { error , registerSuccess } = this.props
     return (
       <div className="card mh3 ph3 w-90">
         <form onSubmit={this.props.handleSubmit} noValidate>
           <p>
-            Email 
+            Email
             <input 
-              className={classNames('card w-90',{'b-error':this.props.error.email})} 
+              className={classNames('card w-90',{'b-error':error.email})} 
               name="email"
               onChange={this.props.handleChange}
               placeholder="mail@mail.com" 
               type="email"
               value={this.props.email}
             />
+            {error.email ? <span className="f7 font--red fr pt1 i">*Email is Required</span>:''}
           </p>
+          <br />
           <p>
             Password 
             <input 
-              className={classNames('card w-90',{'b-error':this.props.error.password})} 
+              className={classNames('card w-90',{'b-error':error.password})} 
               name="password"
               onChange={this.props.handleChange}
               placeholder="password"
               type="password"
               value={this.props.password}
             />
+            {error.password ? <span className="f7 font--red fr pt1 i">*Password is Required</span>:''}
           </p>
-          <p className="pv3 mha">
+          <p className="mv3 pt3">
             {this.props.register ?
               <button className="btn" type="submit">Sign Up</button> :
               <button className="btn primary" type="submit">Sign In</button>
             }
+            {registerSuccess ? <span className="f7 font--green fr pt1 i">*Register Success</span>:''}
           </p>
           
         </form>
