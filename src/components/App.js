@@ -41,8 +41,8 @@ class App extends Component {
     
   }
   render() {
-    const { email , password , register , registerSuccess } = this.state
-    const { error , signIn } = this.props
+    let { email , password , register , registerSuccess } = this.state
+    let { error , signIn } = this.props
     return (
       <div className="c">
         <h3 className="">Node JS Access Authentication with React JS</h3>
@@ -59,7 +59,7 @@ class App extends Component {
               }
             </a>
             </p>
-            <div className="f6 i">You'll see cheats when you sign in.</div>
+            <div className="f6 i">{"You'll see cheats when you sign in."}</div>
             <br />
             <p>Libraries initially used : 
             {' '}<a href="https://github.com/kelektiv/node.bcrypt.js" target="blank">Bcrypt</a>, 
@@ -75,16 +75,12 @@ class App extends Component {
               handleSubmit={this.handleSubmit} 
               signIn={signIn}
               password={password} 
-              register={this.state.register} 
+              register={register}
+              registerSuccess={registerSuccess} 
             />
           </div>
         </div>
         <br />
-        <div className="">
-          {error.email ? <span className="bg-error ma1 ph3 pv1 rounded font--light">{error.email}</span>:''}
-          {error.password ? <span className="bg-error ma1 ph3 pv1 rounded font--light">{error.password}</span>:''}
-          {registerSuccess && <span className="bg-error ma1 ph3 pv1 rounded font--light">Registered Successfully...</span>}
-        </div>
     </div>      
     )
   }

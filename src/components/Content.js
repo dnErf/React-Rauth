@@ -38,8 +38,8 @@ passport.use (
 `
     return (      
       <div className="c">
-        <a href="/">{'<-'} Go Back</a>
-        <p className="f3">You Log in using these script/libraries ...</p>
+        <a href="/">&larr; Go Back</a>
+        <p className="f3 mt3">You Log in using these script/libraries ...</p>
         <div className="ma3 pa3">
           <p className="f4 ma0">Bcrypt</p>
           - a hashing function based on the Blowfish cipher. It incorporate a salt solution to protect against attacks.

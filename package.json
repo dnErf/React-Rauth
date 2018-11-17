@@ -12,13 +12,14 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.14",
+    "node-sass": "^4.10.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.1.1",
     "redux": "^4.0.0",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
@@ -31,5 +32,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "yarn install & yarn build"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

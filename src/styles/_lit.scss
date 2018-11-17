@@ -1,0 +1,71 @@
+* + * 
+, *::before 
+, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $clr-primary;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    opacity: .6;
+  }
+}
+
+body {
+  font-family: $font , serif;
+  min-height: 100%;
+}
+
+br { clear: left; /* separate the list from subsequent markup */ }
+
+hr { outline: 0; border: solid $clr-primary; }
+
+html {
+  // font-size: 137.5%;
+  // font-size: 100%;
+  font-size: 62.50%;
+  height: 100%;
+  line-height: 1.15;
+  font: 1rem $font;
+}
+
+svg { fill: currentColor; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
+
+p { margin: 0; padding: 0; }
+
+pre {
+  background-color: $clr-gray-light;
+  overflow: auto;
+  padding: .5rem 1rem;
+}
+
+td
+, th {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: solid $clr-light;
+}
+
+// ul {
+//   list-style: none;
+//   padding: 0;
+// }
+
+@media(min-width:35rem) {
+  .col { display: table-cell; }
+  .\31 { width: 8%; }
+  .\32 { width: 17%; }
+  .\33 { width: 25%; }
+  .\34 { width: 33%; }
+  .\35 { width: 42%; }
+  .\36 { width: 50%; }
+  .row {
+    display: table;
+    border-spacing: 1rem 0;
+  }
+}
