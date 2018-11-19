@@ -17,7 +17,7 @@ class SignIn extends Component {
           <p>
             Email
             <input 
-              {...funcStyle('inputBox',{'inputError':error.email})} 
+              {...funcStyle('inputBox',{'inputError':error.email})}
               name="email"
               onChange={handleChange}
               placeholder="mail@mail.com" 
@@ -29,8 +29,8 @@ class SignIn extends Component {
           <br />
           <p>
             Password 
-            <input 
-              {...funcStyle('inputBox',{'inputError':error.password})} 
+            <input
+              {...funcStyle('inputBox',{'inputError':error.password})}
               name="password"
               onChange={handleChange}
               placeholder="password"
