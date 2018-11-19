@@ -46,4 +46,15 @@
 
 .pre-wrap { white-space : pre-wrap; }
 
+.bx-input {
+  padding: .9rem;
+  border: 1.5px solid $clr-light;
+  &:focus {
+    outline: 0;
+    border: 1.5px solid $clr-primary;
+  } 
+}
+.bx-input--onerror { outline: 0; border: 1.5px solid red; }
+
 //
+

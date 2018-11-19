@@ -41,8 +41,9 @@ class App extends Component {
     
   }
   render() {
-    let { email , password , register , registerSuccess } = this.state
-    let { error , signIn } = this.props
+    let 
+      { email , password , register , registerSuccess } = this.state
+      , { error , signIn } = this.props
     return (
       <div className="c">
         <h3 className="">Node JS Access Authentication with React JS</h3>

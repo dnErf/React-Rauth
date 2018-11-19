@@ -1,44 +1,50 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import classFuncStyle from 'class-func-style'
 
 class SignIn extends Component {
   render() {
-    let { error , registerSuccess } = this.props
+    let 
+      { error , handleChange , handleSubmit , registerSuccess } = this.props 
+      , funcStyle = classFuncStyle({
+        'inputBox' : 'bx-input w-90' ,
+        'inputError' : 'bx-input--onerror' ,
+        'inputErrorTxt' : 'f7 font--red fr pt1 i' ,
+      })
     return (
       <div className="card mh3 ph3 w-90">
-        <form onSubmit={this.props.handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} noValidate>
           <p>
             Email
             <input 
-              className={classNames('card w-90',{'b-error':error.email})} 
+              {...funcStyle('inputBox',{'inputError':error.email})} 
               name="email"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
               placeholder="mail@mail.com" 
               type="email"
               value={this.props.email}
             />
-            {error.email ? <span className="f7 font--red fr pt1 i">*Email is Required</span>:''}
+            {error.email ? <span {...funcStyle('inputErrorTxt')}>*Email is Required</span>:''}
           </p>
           <br />
           <p>
             Password 
             <input 
-              className={classNames('card w-90',{'b-error':error.password})} 
+              {...funcStyle('inputBox',{'inputError':error.password})} 
               name="password"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
               placeholder="password"
               type="password"
               value={this.props.password}
             />
-            {error.password ? <span className="f7 font--red fr pt1 i">*Password is Required</span>:''}
+            {error.password ? <span {...funcStyle('inputErrorTxt')}>* Password is Required</span>:''}
           </p>
           <p className="mv3 pt3">
             {this.props.register ?
               <button className="btn" type="submit">Sign Up</button> :
               <button className="btn primary" type="submit">Sign In</button>
             }
-            {registerSuccess ? <span className="f7 font--green fr pt1 i">*Register Success</span>:''}
+            {registerSuccess ? <span className="f7 font--green fr pt1 i">* Register Success</span>:''}
           </p>
           
         </form>
@@ -48,9 +54,11 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
+  error : PropTypes.object ,
   handleChange : PropTypes.func.isRequired ,
   handleSubmit : PropTypes.func.isRequired ,
-  signIn : PropTypes.func.isRequired
+  signIn : PropTypes.func.isRequired ,
+  registerSuccess : PropTypes.bool ,
 }
 
 export default SignIn
