@@ -41,7 +41,7 @@ class SignIn extends Component {
           </p>
           <p className="mv3 pt3">
             {this.props.register ?
-              <button className="btn" type="submit">Sign Up</button> :
+              <button className="btn box" type="submit">Sign Up</button> :
               <button className="btn primary" type="submit">Sign In</button>
             }
             {registerSuccess ? <span className="f7 font--green fr pt1 i">* Register Success</span>:''}

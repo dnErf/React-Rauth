@@ -1,0 +1,27 @@
+// [btn] : buttons
+.btn {
+  &
+  , &:link
+  , &:visited {
+    cursor: pointer;
+    padding: .5rem .6rem;
+    transition: all .1s ease;
+  }
+  &:active { transform: translateY(.4px); }
+  &:focus { outline: none; }
+  &:hover { opacity: .6; }
+  &.box {
+    background: white;
+    border: solid $clr-gray;
+  }
+  &.clr {
+    background: transparent;
+    border: solid transparent;
+    color: $clr-primary;
+  }
+  &.primary {
+    color: white;
+    background: $clr-primary;
+    border: solid $clr-primary;
+  }
+}

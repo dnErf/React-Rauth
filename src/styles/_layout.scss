@@ -1,0 +1,16 @@
+.c {
+  max-width: 60rem;
+  padding: 1rem;
+  margin: auto;
+  // font: 1rem/1.6 $font;
+  // font: 1rem $font;
+}
+
+.card {
+  padding: 1rem;
+  border: solid $clr-light;
+  &:focus {
+    outline: 0;
+    border: solid $clr-primary;
+  }
+}

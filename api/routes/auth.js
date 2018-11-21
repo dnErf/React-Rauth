@@ -1,17 +1,22 @@
-const jwt = require('jsonwebtoken')
-const secretKey = require('../../config.js').secrets
-const userAuth = require('../model').Auth
-const validateInput = require('../validation')
+const 
+  jwt = require('jsonwebtoken')
+  , secretKey = require('../../config.js').secrets
+  , userAuth = require('../model').Auth
+  , validateInput = require('../validation')
 
 // post api/signin
 exports.signIn = async function(req,res,next) {
-  const { errors , isValid } = validateInput(req.body)
-  const email = req.body.email
-  const password = req.body.password
-  if (!isValid) { return res.status(400).json(errors) }
+
+  const 
+    { errors , isValid } = validateInput(req.body)
+  if 
+    (!isValid) { return res.status(400).json(errors) }
+
+  const { email , password } = req.body
+
   userAuth
     .findOne({email})
-    .then(user => {
+    .then((user) => {
       if (!user) {
         errors.email = 'user not found'
         return res.status(404).json(errors)
@@ -19,7 +24,7 @@ exports.signIn = async function(req,res,next) {
       else {
         user
           .matchPassword(password)
-          .then(isMatch=>{
+          .then((isMatch)=>{
             if (!isMatch) {
               errors.password = 'incorrect password'
               return res.status(400).json(errors)
@@ -30,26 +35,32 @@ exports.signIn = async function(req,res,next) {
                 payload,
                 secretKey,
                 {expiresIn:3600} ,
-                (err,token)=>{res.json({success:true,token:'Bearer '+token})}
+                (token)=>{res.json({success:true,token:'Bearer '+token})}
               )
             }
           })
       }
     })
-    .catch(err => res.json({err}))
+    .catch((err) => res.json({err}))
+    
 }
 
 // put api/signup
 exports.signUp = async function(req,res,next) {
-  const { errors , isValid } = validateInput(req.body)
+
+  const 
+    { errors , isValid } = validateInput(req.body)
+  if 
+    (!isValid) { return res.status(400).json(errors) }
+
   const newUserAuth = new userAuth({
     email : req.body.email , 
     password : req.body.password
   })
-  if (!isValid) { return res.status(400).json(errors) }
+
   userAuth
     .findOne({ email : req.body.email })
-    .then(user => { 
+    .then((user) => { 
       if (user) {
         errors.email = 'email already exist'
         return res.status(400).json({ errors })
@@ -57,9 +68,10 @@ exports.signUp = async function(req,res,next) {
       else {
         newUserAuth
           .save()
-          .then(user => res.json(user))
-          .catch(err => console.log(err))
+          .then((user) => res.json(user))
+          .catch((err) => console.log(err))
       }
     })
-    .catch(err => { res.json(err) })
+    .catch((err) => { res.json(err) })
+
 }
